@@ -1,0 +1,36 @@
+<!Doctype html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Product List</title>
+    <link rel="stylesheet" th:href ="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" >
+</head>
+<body>
+    <div class="alert alert-success">
+        <stong>Product List</stong>
+    </div>
+    <div class="container">
+        <div class="text-right mb-2">
+            <a th:href="@{/add}" class="btn btn-success">+ Add product</a>
+        </div>
+        <table class="table-bordered w-100">
+            <thead>
+                <tr>
+                    <th>Sl. no.</th>
+                    <th>Product Name</th>
+                    <th>Product Quantity</th>
+                    <th>Product Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product:${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.quantity}"></td>
+                    <td th:text="${product.price}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
